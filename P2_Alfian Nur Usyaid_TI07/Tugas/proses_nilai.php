@@ -15,8 +15,21 @@ if (isset($_GET['submit'])) {
 
     echo "<br> <br>";
 
-    echo "Nilai Rata-rata :" . round($average, 2) . "<br>";
+    echo "Nilai Rata-rata : " . round($average, 2) . "<br>";
     echo "Grade Nilai : ";
+    if ($average < 35) {
+        echo "E";
+    } elseif ($average < 55) {
+        echo "D";
+    } elseif ($average < 69) {
+        echo "C";
+    } elseif ($average < 84) {
+        echo "B";
+    } elseif ($average < 100) {
+        echo "A";
+    } else {
+        echo "I";
+    }
 } else {
     echo "Data Kosong";
 }
