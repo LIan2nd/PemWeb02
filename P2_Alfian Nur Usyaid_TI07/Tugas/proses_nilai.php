@@ -37,7 +37,9 @@
 
             echo "Nilai Rata-rata : " . round($average, 2) . "<br>";
             echo "Grade Nilai : ";
-            if ($average < 35) {
+            if ($average < 0) {
+                echo "I";
+            } elseif ($average < 35) {
                 echo "E";
             } elseif ($average < 55) {
                 echo "D";
@@ -46,7 +48,7 @@
             } elseif ($average < 84) {
                 echo "B";
             } elseif ($average < 100) {
-                echo "A";
+                echo "D";
             } else {
                 echo "I";
             }
