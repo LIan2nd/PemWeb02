@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-8 my-3">
                 <h2>Belanja Online</h2>
@@ -72,28 +72,47 @@
     <hr>
 
     <!-- PHP -->
-    <div class="container-fluid">
-        <?php
-        if (isset($_POST['submit'])) {
-            $nama = $_POST['nama'];
-            $produk = $_POST['produk'];
-            $jumlah = $_POST['jumlah'];
-            if ($produk == "TV") {
-                $total_belanja = $jumlah * 4200000;
-            } elseif ($produk == "KULKAS") {
-                $total_belanja = $jumlah * 3100000;
-            } elseif ($produk == "MESIN CUCI") {
-                $total_belanja = $jumlah * 3800000;
-            }
-            $total = number_format($total_belanja, 0, ".", ".");
-            echo "Nama Customer : $nama <br>";
-            echo "Produk Pilihan : $produk <br>";
-            echo "Jumlah Beli : $jumlah <br>";
-            echo "Total Belanja : Rp. $total,-";
-        } else {
-            echo "";
-        }
-        ?>
+    <div class="container mt-5">
+        <table class="table table-borderless text-center">
+            <?php if (isset($_POST['submit'])):
+                $nama = $_POST['nama'];
+                $produk = $_POST['produk'];
+                $jumlah = $_POST['jumlah'];
+                if ($produk == "TV") {
+                    $total_belanja = $jumlah * 4200000;
+                } elseif ($produk == "KULKAS") {
+                    $total_belanja = $jumlah * 3100000;
+                } elseif ($produk == "MESIN CUCI") {
+                    $total_belanja = $jumlah * 3800000;
+                }
+                $total = number_format($total_belanja, 0, ".", ".");
+                ?>
+                <thead>
+                    <tr class="bg-primary text-light font-weight-bold">
+                        <td>Nama Customer</td>
+                        <td>Produk Pilihan</td>
+                        <td>Jumlah Beli</td>
+                        <td>Total Belanja</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-light text-dark">
+                        <td>
+                            <?= $nama ?>
+                        </td>
+                        <td>
+                            <?= $produk ?>
+                        </td>
+                        <td>
+                            <?= $jumlah ?>
+                        </td>
+                        <td>
+                            <?="Rp. $total,-" ?>
+                        </td>
+                    </tr>
+                </tbody>
+            <?php endif ?>
+        </table>
     </div>
 
 </body>
