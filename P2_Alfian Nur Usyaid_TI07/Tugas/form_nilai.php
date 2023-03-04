@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Nilai Siswa</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;800;900&display=swap');
+
+    * {
+        font-family: 'Inter', sans-serif;
+    }
+    </style>
 </head>
 
 <body>
@@ -26,9 +33,9 @@
                 <label for="matkul" class="col-4 col-form-label">Mata Kuliah</label>
                 <div class="col-8">
                     <select id="matkul" name="matkul" class="custom-select" required="required">
-                        <option value="Pemweb">Pemrograman Web</option>
-                        <option value="DDP">Dasar-dasar Pemrograman</option>
-                        <option value="BasDat">Basis Data</option>
+                        <option value="Pemrograman Web">Pemrograman Web</option>
+                        <option value="Dasar-Dasar Pemrograman">Dasar-dasar Pemrograman</option>
+                        <option value="Basis Data">Basis Data</option>
                     </select>
                 </div>
             </div>

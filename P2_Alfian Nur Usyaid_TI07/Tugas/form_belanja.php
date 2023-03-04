@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Belanja</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;800;900&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,9 +68,9 @@
             <div class="col-4 my-3">
                 <ul class="list-group">
                     <li class="list-group-item active">Daftar Harga</li>
-                    <li class="list-group-item">TV: 4.200.000</li>
-                    <li class="list-group-item">kulkas: 3.100.000</li>
-                    <li class="list-group-item">Mesin Cuci: 3.800.000</li>
+                    <li class="list-group-item">TV : 4.200.000</li>
+                    <li class="list-group-item">kulkas : 3.100.000</li>
+                    <li class="list-group-item">Mesin Cuci : 3.800.000</li>
                     <li class="list-group-item active">Harga dapat berubah setiap saat</li>
                 </ul>
             </div>
@@ -88,7 +95,7 @@
                 $total = number_format($total_belanja, 0, ".", ".");
                 ?>
                 <thead>
-                    <tr class="bg-primary text-light font-weight-bold">
+                    <tr class="font-weight-bold" style="background-color: #addbff;">
                         <td>Nama Customer</td>
                         <td>Produk Pilihan</td>
                         <td>Jumlah Beli</td>
@@ -107,7 +114,7 @@
                             <?= $jumlah ?>
                         </td>
                         <td>
-                            <?="Rp. $total,-" ?>
+                            <?= "Rp. $total,-" ?>
                         </td>
                     </tr>
                 </tbody>
