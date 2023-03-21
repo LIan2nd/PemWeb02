@@ -61,8 +61,8 @@
                 </form>
 
                 <div class="social-auth-links text-center mt-2 mb-3">
-                    <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                    <a href="#" class="btn btn-block btn-primary" onclick="admin()">
+                        Akun admin
                     </a>
                     <a href="#" class="btn btn-block btn-danger">
                         <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
@@ -89,6 +89,11 @@
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
+    <script>
+        function admin() {
+            alert('email : admin@gmail.com | password : admin123')
+        }
+    </script>
 </body>
 
 </html>
