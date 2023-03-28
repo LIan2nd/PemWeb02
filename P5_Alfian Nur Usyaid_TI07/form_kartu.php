@@ -7,14 +7,14 @@ require_once 'dbkoneksi.php';
 <?php
 $_idedit = $_GET['idedit'];
 if (!empty($_idedit)) {
-  // edit
-  $sql = "SELECT * FROM kartu WHERE id=?";
-  $st = $dbh->prepare($sql);
-  $st->execute([$_idedit]);
-  $row = $st->fetch();
+    // edit
+    $sql = "SELECT * FROM kartu WHERE id=?";
+    $st = $dbh->prepare($sql);
+    $st->execute([$_idedit]);
+    $row = $st->fetch();
 } else {
-  // new data
-  $row = [''];
+    // new data
+    $row = [''];
 }
 ?>
 
