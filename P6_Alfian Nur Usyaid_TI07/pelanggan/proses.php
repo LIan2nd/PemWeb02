@@ -1,5 +1,5 @@
 <?php
-require_once 'dbkoneksi.php';
+require_once '../dbkoneksi.php';
 ?>
 <?php
 $_kode = $_POST['kode'];
@@ -35,5 +35,5 @@ if (isset($sql)) {
     $st->execute($ar_data);
 }
 
-header('location:list_pelanggan.php');
+header('location:index.php');
 ?>

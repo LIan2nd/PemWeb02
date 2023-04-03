@@ -1,22 +1,9 @@
 <?php
-include_once 'templates/top.php';
-include_once 'templates/Sidebar.php';
-require_once 'dbkoneksi.php';
+include_once '../templates/top.php';
+include_once '../templates/Sidebar.php';
+require_once '../dbkoneksi.php';
 ?>
 
-<?php
-$_idedit = $_GET['idedit'];
-if (!empty($_idedit)) {
-    // edit
-    $sql = "SELECT * FROM pelanggan WHERE id=?";
-    $st = $dbh->prepare($sql);
-    $st->execute([$_idedit]);
-    $row = $st->fetch();
-} else {
-    // new data
-    $row = [];
-}
-?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -27,7 +14,8 @@ if (!empty($_idedit)) {
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Pelanggan</a></li>
                         <li class="breadcrumb-item active">Create Pelanggan</li>
                     </ol>
                 </div>
@@ -41,7 +29,7 @@ if (!empty($_idedit)) {
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Pelanggan</h3>
+                <h3 class="card-title">Create Pelanggan</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -54,7 +42,7 @@ if (!empty($_idedit)) {
             </div>
             <div class="card-body">
 
-                <form method="POST" action="proses_pelanggan.php">
+                <form method="POST" action="proses.php">
                     <div class="form-group row">
                         <label for="kode" class="col-4 col-form-label">Kode</label>
                         <div class="col-8">
@@ -145,8 +133,8 @@ if (!empty($_idedit)) {
                                 <?php
                                 foreach ($rsjenis as $rowjenis) {
                                     ?>
-                                <option value="<?= $rowjenis['id'] ?>"><?= $rowjenis['nama'] ?></option>
-                                <?php
+                                    <option value="<?= $rowjenis['id'] ?>"><?= $rowjenis['nama'] ?></option>
+                                    <?php
                                 }
                                 ?>
                             </select>
@@ -171,5 +159,5 @@ if (!empty($_idedit)) {
     <!-- /.content -->
 </div>
 <?php
-include_once 'templates/footer.php';
+include_once '../templates/footer.php';
 ?>

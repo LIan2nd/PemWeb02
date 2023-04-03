@@ -1,35 +1,29 @@
 <?php
-require_once 'dbkoneksi.php';
+require_once '../dbkoneksi.php';
+include_once '../templates/top.php';
+include_once '../templates/Sidebar.php';
 ?>
 <?php
 $_id = $_GET['id'];
-// select * from produk where id = $_id;
-//$sql = "SELECT a.*,b.nama as jenis FROM produk a
-//INNER JOIN jenis_produk b ON a.jenis_produk_id=b.id WHERE a.id=?";
-$sql = "SELECT * FROM kartu WHERE id=?";
+$sql = "SELECT * FROM produk WHERE id=?";
 $st = $dbh->prepare($sql);
 $st->execute([$_id]);
 $row = $st->fetch();
-//echo 'NAMA PRODUK ' . $row['nama'];
 ?>
 
-<?php
-include_once 'templates/top.php';
-include_once 'templates/Sidebar.php';
-require_once 'dbkoneksi.php';
-?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Form Kelola Produk</h1>
+                    <h1>Kelola Produk</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Blank Page</li>
+                        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Produk</a></li>
+                        <li class="breadcrumb-item active">View Produk</li>
                     </ol>
                 </div>
             </div>
@@ -42,7 +36,7 @@ require_once 'dbkoneksi.php';
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Title</h3>
+                <h3 class="card-title">View Produk</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -61,32 +55,58 @@ require_once 'dbkoneksi.php';
                                 <tbody>
                                     <tr>
                                         <td>ID</td>
+
                                         <td>
                                             <?= $row['id'] ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Kode</td>
+
                                         <td>
                                             <?= $row['kode'] ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Nama Produk</td>
+
                                         <td>
                                             <?= $row['nama'] ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Diskon</td>
+                                        <td>Harga Jual</td>
+
                                         <td>
-                                            <?= $row['diskon'] ?>
+                                            <?= $row['harga_jual'] ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Iuran</td>
+                                        <td>Harga Beli</td>
+
                                         <td>
-                                            <?= $row['iuran'] ?>
+                                            <?= $row['harga_beli'] ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stok</td>
+
+                                        <td>
+                                            <?= $row['stok'] ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimum Stok</td>
+
+                                        <td>
+                                            <?= $row['min_stok'] ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenis Produk</td>
+
+                                        <td>
+                                            <?= $row['jenis_produk_id'] ?>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -102,5 +122,5 @@ require_once 'dbkoneksi.php';
 
 
 <?php
-include_once 'templates/footer.php';
+include_once '../templates/footer.php';
 ?>

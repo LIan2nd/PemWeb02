@@ -1,5 +1,5 @@
 <?php
-require_once 'dbkoneksi.php';
+require_once '../dbkoneksi.php';
 ?>
 <?php
 $sql = "SELECT * FROM pelanggan";
@@ -7,8 +7,8 @@ $rs = $dbh->query($sql);
 ?>
 
 <?php
-include_once 'templates/Top.php';
-include_once 'templates/Sidebar.php';
+include_once '../templates/Top.php';
+include_once '../templates/Sidebar.php';
 ?>
 
 <div class="content-wrapper">
@@ -21,7 +21,7 @@ include_once 'templates/Sidebar.php';
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                         <li class="breadcrumb-item active">Pelanggan</li>
                     </ol>
                 </div><!-- /.col -->
@@ -32,7 +32,7 @@ include_once 'templates/Sidebar.php';
 
     <section class="content">
         <div class="container-fluid">
-            <a class="btn btn-success mb-2" href="form_pelanggan.php" role="button">Create Pelanggan</a>
+            <a class="btn btn-success mb-2" href="form.php" role="button">Create Pelanggan</a>
             <table class="table text-center" width="100%" border="1" cellspacing="2" cellpadding="2">
                 <thead>
                     <tr>
@@ -78,9 +78,9 @@ include_once 'templates/Sidebar.php';
                                 <?= $row['kartu_id'] ?>
                             </td>
                             <td>
-                                <a class="btn btn-primary" href="view_pelanggan.php?id=<?= $row['id'] ?>">View</a>
-                                <a class="btn btn-primary" href="edit_pelanggan.php?idedit=<?= $row['id'] ?>">Edit</a>
-                                <a class="btn btn-primary" href="delete_pelanggan.php?iddel=<?= $row['id'] ?>" onclick="if(!confirm('Anda Yakin Hapus Data Pelanggan <?= $row['nama'] ?>?')) {return
+                                <a class="btn btn-primary" href="view.php?id=<?= $row['id'] ?>">View</a>
+                                <a class="btn btn-primary" href="edit.php?idedit=<?= $row['id'] ?>">Edit</a>
+                                <a class="btn btn-primary" href="delete.php?iddel=<?= $row['id'] ?>" onclick="if(!confirm('Anda Yakin Hapus Data Pelanggan <?= $row['nama'] ?>?')) {return
                                 false}">Delete</a>
                             </td>
                         </tr>
@@ -97,6 +97,6 @@ include_once 'templates/Sidebar.php';
 </div>
 
 <?php
-include_once 'templates/footer.php'
+include_once '../templates/footer.php'
 
     ?>

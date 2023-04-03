@@ -1,17 +1,17 @@
 <?php
 $menus = [
-    'Home' => 'index.php',
-    'Produk' => 'list_produk.php',
-    'Pelanggan' => 'list_pelanggan.php',
-    'Kartu' => 'list_kartu.php'
+    'Home' => '../index.php',
+    'Produk' => '../produk/index.php',
+    'Pelanggan' => '../pelanggan/index.php',
+    'Kartu' => '../kartu/index.php'
 ];
 
 ?>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index.php" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="../index.php" class="brand-link">
+        <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -21,10 +21,10 @@ $menus = [
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="index.php" class="d-block">Admin</a>
+                <a href="../index.php" class="d-block">Admin</a>
             </div>
         </div>
 
