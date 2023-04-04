@@ -2,7 +2,8 @@
 require_once '../dbkoneksi.php';
 ?>
 <?php
-$sql = "SELECT * FROM kartu";
+$sql = "SELECT DISTINCT kartu.*, pelanggan.kartu_id as is_pelanggan 
+FROM kartu LEFT JOIN pelanggan ON kartu.id = pelanggan.kartu_id";
 $cards = $dbh->query($sql);
 ?>
 
@@ -49,29 +50,30 @@ include_once '../templates/Sidebar.php';
                     $nomor = 1;
                     foreach ($cards as $card):
                         ?>
-                    <tr>
-                        <td>
-                            <?= $nomor++; ?>
-                        </td>
-                        <td>
-                            <?= $card['kode'] ?>
-                        </td>
-                        <td>
-                            <?= $card['nama'] ?>
-                        </td>
-                        <td>
-                            <?= $card['diskon'] ?>
-                        </td>
-                        <td>
-                            <?= $card['iuran'] ?>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary" href="view.php?id=<?= $card['id'] ?>">View</a>
-                            <a class="btn btn-primary" href="edit.php?idedit=<?= $card['id'] ?>">Edit</a>
-                            <a class="btn btn-primary" href="delete.php?iddel=<?= $card['id'] ?>" onclick="if(!confirm('Anda Yakin Hapus Data Pelanggan <?= $row['nama'] ?>?')) {return
-                                false}">Delete</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                <?= $nomor++; ?>
+                            </td>
+                            <td>
+                                <?= $card['kode'] ?>
+                            </td>
+                            <td>
+                                <?= $card['nama'] ?>
+                            </td>
+                            <td>
+                                <?= $card['diskon'] ?>
+                            </td>
+                            <td>
+                                <?= $card['iuran'] ?>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="view.php?id=<?= $card['id'] ?>">View</a>
+                                <a class="btn btn-primary" href="edit.php?idedit=<?= $card['id'] ?>">Edit</a>
+                                <a class="btn btn-primary <?= $card['is_pelanggan'] ? 'disabled' : '' ?>"
+                                    href="delete.php?iddel=<?= $card['id'] ?>"
+                                    onclick="if(!confirm('Anda Yakin Hapus Data Produk <?= $card['nama'] ?>?')) {return false}">Delete</a>
+                            </td>
+                        </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>

@@ -3,7 +3,7 @@ require_once '../dbkoneksi.php';
 ?>
 <?php
 $_id = $_GET['id'];
-$sql = "SELECT * FROM pelanggan WHERE id=?";
+$sql = "SELECT * FROM Vendor WHERE id=?";
 $st = $dbh->prepare($sql);
 $st->execute([$_id]);
 $row = $st->fetch();
@@ -18,13 +18,13 @@ include_once '../templates/Sidebar.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Kelola Pelanggan</h1>
+                    <h1>Kelola vendor</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Pelanggan</a></li>
-                        <li class="breadcrumb-item active">View Pelanggan</li>
+                        <li class="breadcrumb-item"><a href="index.php">vendor</a></li>
+                        <li class="breadcrumb-item active">View vendor</li>
                     </ol>
                 </div>
             </div>
@@ -37,7 +37,7 @@ include_once '../templates/Sidebar.php';
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">View Pelanggan</h3>
+                <h3 class="card-title">View vendor</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -55,51 +55,27 @@ include_once '../templates/Sidebar.php';
                             <table class="table table-striped">
                                 <tbody>
                                     <tr>
-                                        <td>ID</td>
+                                        <td>Nomor Vendor</td>
                                         <td>
-                                            <?= $row['id'] ?>
+                                            <?= $row['nomor'] ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Kode</td>
-                                        <td>
-                                            <?= $row['kode'] ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama Pelanggan</td>
+                                        <td>Nama</td>
                                         <td>
                                             <?= $row['nama'] ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Jenis Kelamin</td>
+                                        <td>Kota</td>
                                         <td>
-                                            <?= $row['jk'] ?>
+                                            <?= $row['kota'] ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Tempat Lahir</td>
+                                        <td>Kontak</td>
                                         <td>
-                                            <?= $row['tmp_lahir'] ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal Lahir</td>
-                                        <td>
-                                            <?= $row['tgl_lahir'] ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>
-                                            <?= $row['email'] ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kartu id</td>
-                                        <td>
-                                            <?= $row['kartu_id'] ?>
+                                            <?= $row['kontak'] ?>
                                         </td>
                                     </tr>
                                 </tbody>

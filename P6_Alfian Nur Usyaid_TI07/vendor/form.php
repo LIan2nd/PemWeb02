@@ -10,13 +10,13 @@ require_once '../dbkoneksi.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Form Kelola Kartu</h1>
+                    <h1>Form Kelola Vendor</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Kartu</a></li>
-                        <li class="breadcrumb-item active">Create Kartu</li>
+                        <li class="breadcrumb-item"><a href="index.php">Vendor</a></li>
+                        <li class="breadcrumb-item active">Create Vendor</li>
                     </ol>
                 </div>
             </div>
@@ -29,7 +29,7 @@ require_once '../dbkoneksi.php';
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Create Kartu</h3>
+                <h3 class="card-title">Create Vendor</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -44,20 +44,7 @@ require_once '../dbkoneksi.php';
 
                 <form method="POST" action="proses.php">
                     <div class="form-group row">
-                        <label for="kode" class="col-4 col-form-label">Kode</label>
-                        <div class="col-8">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fa fa-anchor"></i>
-                                    </div>
-                                </div>
-                                <input id="kode" name="kode" type="text" class="form-control" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="nama" class="col-4 col-form-label">Nama Kartu</label>
+                        <label for="nomor" class="col-4 col-form-label">Nomor Vendor</label>
                         <div class="col-8">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -65,27 +52,38 @@ require_once '../dbkoneksi.php';
                                         <i class="fa fa-adjust"></i>
                                     </div>
                                 </div>
+                                <input id="nomor" name="nomor" type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama" class="col-4 col-form-label">Nama</label>
+                        <div class="col-8">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-anchor"></i>
+                                    </div>
+                                </div>
                                 <input id="nama" name="nama" type="text" class="form-control" value="">
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group row">
-                        <label for="diskon" class="col-4 col-form-label">Diskon</label>
+                        <label for="kota" class="col-4 col-form-label">kota</label>
                         <div class="col-8">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <i class="fa fa-arrow-circle-up"></i>
+                                        <i class="fa fa-adjust"></i>
                                     </div>
                                 </div>
-                                <input id="diskon" name="diskon" value="" type="number" class="form-control">
+                                <input id="kota" name="kota" type="text" class="form-control" value="">
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group row">
-                        <label for="iuran" class="col-4 col-form-label">Iuran</label>
+                        <label for="kontak" class="col-4 col-form-label">kontak</label>
                         <div class="col-8">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -93,7 +91,7 @@ require_once '../dbkoneksi.php';
                                         <i class="fa fa-arrow-circle-up"></i>
                                     </div>
                                 </div>
-                                <input id="iuran" name="iuran" value="" type="number" class="form-control">
+                                <input id="kontak" name="kontak" value="" type="text" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -104,11 +102,10 @@ require_once '../dbkoneksi.php';
                             ?>
                             <input type="submit" name="proses" type="submit" class="btn btn-primary"
                                 value="<?= $button ?>" />
-                            <input type="hidden" name="idedit" value="" />
+                            <input type="hidden" name="idedit" value="<?= $_idedit ?>" />
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
         <!-- /.card -->
@@ -116,8 +113,6 @@ require_once '../dbkoneksi.php';
     </section>
     <!-- /.content -->
 </div>
-
-
 <?php
 include_once '../templates/footer.php';
 ?>

@@ -42,7 +42,7 @@ if (!empty($_idedit)) {
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Edit Pelanggan</h3>
+                <h3 class="card-title">Edit fPelanggan</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

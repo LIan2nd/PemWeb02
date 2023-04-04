@@ -2,8 +2,7 @@
 require_once '../dbkoneksi.php';
 ?>
 <?php
-$sql = "SELECT DISTINCT pelanggan.*, pesanan.pelanggan_id as is_pesanan
-FROM pelanggan LEFT JOIN pesanan ON pelanggan.id = pesanan.pelanggan_id";
+$sql = "SELECT * FROM pembelian";
 $rs = $dbh->query($sql);
 ?>
 
@@ -18,12 +17,12 @@ include_once '../templates/Sidebar.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">List Pelanggan</h1>
+                    <h1 class="m-0">List Pembelian</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                        <li class="breadcrumb-item active">Pelanggan</li>
+                        <li class="breadcrumb-item active">Pembelian</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,18 +32,17 @@ include_once '../templates/Sidebar.php';
 
     <section class="content">
         <div class="container-fluid">
-            <a class="btn btn-success mb-2" href="form.php" role="button">Create Pelanggan</a>
+            <a class="btn btn-success mb-2" href="form.php" role="button">Create Pembelian</a>
             <table class="table text-center" width="100%" border="1" cellspacing="2" cellpadding="2">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kode</th>
-                        <th>Nama</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Email</th>
-                        <th>ID</th>
+                        <th>Tanggal</th>
+                        <th>Nomor Pembelian</th>
+                        <th>Id Produk</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
+                        <th>Id Vendor</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -58,32 +56,28 @@ include_once '../templates/Sidebar.php';
                                 <?= $nomor ?>
                             </td>
                             <td>
-                                <?= $row['kode'] ?>
+                                <?= $row['tanggal'] ?>
                             </td>
                             <td>
-                                <?= $row['nama'] ?>
+                                <?= $row['nomor'] ?>
                             </td>
                             <td>
-                                <?= $row['jk'] ?>
+                                <?= $row['produk_id'] ?>
                             </td>
                             <td>
-                                <?= $row['tmp_lahir'] ?>
+                                <?= $row['jumlah'] ?>
                             </td>
                             <td>
-                                <?= $row['tgl_lahir'] ?>
+                                <?= $row['harga'] ?>
                             </td>
                             <td>
-                                <?= $row['email'] ?>
-                            </td>
-                            <td>
-                                <?= $row['kartu_id'] ?>
+                                <?= $row['vendor_id'] ?>
                             </td>
                             <td>
                                 <a class="btn btn-primary" href="view.php?id=<?= $row['id'] ?>">View</a>
                                 <a class="btn btn-primary" href="edit.php?idedit=<?= $row['id'] ?>">Edit</a>
-                                <a class="btn btn-primary <?= $row['is_pesanan'] ? 'disabled' : '' ?>"
-                                    href="delete.php?iddel=<?= $row['id'] ?>"
-                                    onclick="if(!confirm('Anda Yakin Hapus Data Pelanggan <?= $row['nama'] ?>?')) {return false}">Delete</a>
+                                <a class="btn btn-primary" href="delete.php?iddel=<?= $row['id'] ?>" onclick="if(!confirm('Anda Yakin Hapus Data Pelanggan <?= $row['nomor'] ?>?')) {return
+                                false}">Delete</a>
                             </td>
                         </tr>
                         <?php

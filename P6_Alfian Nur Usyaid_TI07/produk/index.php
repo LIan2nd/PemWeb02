@@ -2,7 +2,8 @@
 require_once '../dbkoneksi.php';
 ?>
 <?php
-$sql = "SELECT * FROM produk";
+$sql = "SELECT DISTINCT produk.*, pesanan_items.produk_id as is_pesanan_items
+FROM produk LEFT JOIN pesanan_items ON produk.id = pesanan_items.produk_id";
 $rs = $dbh->query($sql);
 ?>
 
@@ -39,8 +40,11 @@ include_once '../templates/Sidebar.php';
                         <th>No</th>
                         <th>Kode</th>
                         <th>Nama</th>
+                        <th>Harga Beli</th>
                         <th>Harga Jual</th>
-                        <th>Qty</th>
+                        <th>Stok</th>
+                        <th>Minimal Stok</th>
+                        <th>Id Jenis Produk</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -60,15 +64,25 @@ include_once '../templates/Sidebar.php';
                                 <?= $row['nama'] ?>
                             </td>
                             <td>
+                                <?= $row['harga_beli'] ?>
+                            </td>
+                            <td>
                                 <?= $row['harga_jual'] ?>
                             </td>
                             <td>
                                 <?= $row['stok'] ?>
                             </td>
                             <td>
+                                <?= $row['min_stok'] ?>
+                            </td>
+                            <td>
+                                <?= $row['jenis_produk_id'] ?>
+                            </td>
+                            <td>
                                 <a class="btn btn-primary" href="view.php?id=<?= $row['id'] ?>">View</a>
                                 <a class="btn btn-primary" href="edit.php?idedit=<?= $row['id'] ?>">Edit</a>
-                                <a class="btn btn-primary" href="delete.php?iddel=<?= $row['id'] ?>"
+                                <a class="btn btn-primary <?= $row['is_pesanan_items'] ? 'disabled' : '' ?>"
+                                    href="delete.php?iddel=<?= $row['id'] ?>"
                                     onclick="if(!confirm('Anda Yakin Hapus Data Produk <?= $row['nama'] ?>?')) {return false}">Delete</a>
                             </td>
                         </tr>

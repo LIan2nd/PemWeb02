@@ -3,7 +3,9 @@ $menus = [
     'Home' => '../index.php',
     'Produk' => '../produk/index.php',
     'Pelanggan' => '../pelanggan/index.php',
-    'Kartu' => '../kartu/index.php'
+    'Kartu' => '../kartu/index.php',
+    'Vendor' => '../vendor/index.php',
+    'Pembelian' => '../pembelian/index.php'
 ];
 
 ?>

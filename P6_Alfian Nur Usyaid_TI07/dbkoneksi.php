@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'dbproduk';
+$db = 'dbpos';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
