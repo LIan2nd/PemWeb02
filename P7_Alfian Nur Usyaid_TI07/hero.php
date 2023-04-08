@@ -28,7 +28,15 @@ class Hero
     public function levelUp()
     {
         $this->level += 1;
+        $this->health += 1000;
+        $this->damage += 150;
     }
+
+    public function attack($target)
+    {
+        $target->health -= $this->damage;
+    }
+
 }
 
 // Membuat objek dari class hero
@@ -37,6 +45,13 @@ $hero1->levelUp();
 $hero1->getInfo();
 
 $hero2 = new Hero('Moskov', 900000, 5000);
+$hero2->getInfo();
+
+echo "<br> <hr>";
+
+$hero1->attack($hero2);
+
+$hero1->getInfo();
 $hero2->getInfo();
 
 
